@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite 1" verbose="1">
+    <test name="Test 1">
+<!--        <packages>-->
+<!--            <package name="RestAssured.Bai7_Authentication_PUTmethod">-->
+<!--            </package>-->
+<!--        </packages>-->
+        <classes>
+            <class name="RestAssured.Bai7_Authentication_PUTmethod.PUTmethod_TOKEN_COOKIE"></class>
+        </classes>
+
+    </test>
+</suite>
