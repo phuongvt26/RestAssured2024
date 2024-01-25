@@ -1,7 +1,6 @@
 package RestAssured.Bai8_PATCH_DELETE;
 
 public class PatchUserPOJO {
-    // https://api.anhtester.com/swagger/index.html#/User%20Management/updateUserPatch
     private String firstname;
     private String lastname;
     private String email;

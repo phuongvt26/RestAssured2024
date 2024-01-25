@@ -15,7 +15,7 @@ public class testUpdateUser_PATCH extends BaseTest {
 
     @Test
     public void testUpdateUser() {
-        loginUser();
+        loginUser(); // gọi lại hàm loginUser để chạy login lấy token
         PatchUserPOJO patchUserPOJO = new PatchUserPOJO();
         patchUserPOJO.setFirstname("Bối");
         patchUserPOJO.setLastname("Bối");
@@ -27,7 +27,7 @@ public class testUpdateUser_PATCH extends BaseTest {
         request.baseUri("https://api.anhtester.com/api")
                 .accept("application/json")
                 .contentType("application/json")
-                .header("Authorization", "Bearer " + TOKEN)
+                .header("Authorization", "Bearer " + TOKEN) // sau BEARE phải cách ra 1 cách
                 .body(gson.toJson(patchUserPOJO));
         Response response = request.when().patch("/user/313");
         response.prettyPrint();
