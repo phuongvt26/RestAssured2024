@@ -4,7 +4,6 @@ import RestAssured.Common.BaseTest;
 import com.google.gson.Gson;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -17,9 +16,9 @@ public class testCreatUserPOJO extends BaseTest {
         createUserPOJO.setUsername("phuongvt");
         createUserPOJO.setFirstName("vo");
         createUserPOJO.setLastName("thi");
-        createUserPOJO.setPassword("demo@123");
-        createUserPOJO.setPhone("0358156666");
-        createUserPOJO.setEmail("vophuong@gmail.com");
+        createUserPOJO.setPassword("deemo@123");
+        createUserPOJO.setPhone("0658156666");
+        createUserPOJO.setEmail("vophuuong@gmail.com");
         createUserPOJO.setUserStatus(1);
 
         Gson gson= new Gson();
