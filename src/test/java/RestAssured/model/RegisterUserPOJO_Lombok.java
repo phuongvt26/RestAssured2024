@@ -1,4 +1,4 @@
-package RestAssured.Data;
+package RestAssured.model;
 
 import lombok.*;
 

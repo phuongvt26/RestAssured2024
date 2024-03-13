@@ -4,6 +4,8 @@ import RestAssured.Bai6_POJO_JSON.LoginPOJO;
 import com.google.gson.Gson;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.example.globals.ConfigsGlobal;
+import org.example.globals.TokenGlobal;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -14,21 +16,19 @@ public class BaseTest {
 
         @Test
         public void loginUser() {
-            LoginPOJO loginPOJO = new LoginPOJO("anhtester", "Demo@123");
+            LoginPOJO loginPOJO = new LoginPOJO(ConfigsGlobal.USERNAME, ConfigsGlobal.PASSWORD);
             Gson gson = new Gson();
 
             RequestSpecification request = given();
-        request.baseUri("https://api.anhtester.com/api")
-                .accept("application/json")
-                .contentType("application/json")
-                .body(gson.toJson(loginPOJO));
+            request.baseUri(ConfigsGlobal.URI)
+                    .accept("application/json")
+                    .contentType("application/json")
+                    .body(gson.toJson(loginPOJO));
+            Response response = request.when().post("/login");
+            response.then().statusCode(200);
+            TokenGlobal.TOKEN = response.getBody().path("token");
+            System.out.println("Token Global: " + TokenGlobal.TOKEN);
 
-        Response response = request.when().post("/login");
-        response.prettyPrint();
-        response.then().statusCode(200);
 
-        //Lưu giá trị token vào biến TOKEN nhé
-        TOKEN = response.getBody().path("token");
-        System.out.println(TOKEN);
     }
 }

@@ -1,7 +1,7 @@
 package RestAssured.lombok_DataFaker;
 
 import RestAssured.Common.BaseTest;
-import RestAssured.Data.RegisterUserPOJO_Lombok;
+import RestAssured.model.RegisterUserPOJO_Lombok;
 import com.google.gson.Gson;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -67,6 +67,10 @@ public void testUpdateUserLombok(){
         response.then().statusCode(200);
 //        String message = response.getBody().path("message");
 //        Assert.assertEquals(message, "Success", "The message not match.");
+
+}
+public void testCreatedUserLombok(){
+        Faker faker = new Faker();
 
 }
 
