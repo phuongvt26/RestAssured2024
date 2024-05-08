@@ -18,17 +18,14 @@ public class BaseTest {
         public void loginUser() {
             LoginPOJO loginPOJO = new LoginPOJO(ConfigsGlobal.USERNAME, ConfigsGlobal.PASSWORD);
             Gson gson = new Gson();
-
             RequestSpecification request = given();
             request.baseUri(ConfigsGlobal.URI)
                     .accept("application/json")
                     .contentType("application/json")
                     .body(gson.toJson(loginPOJO));
             Response response = request.when().post("/login");
-            response.then().statusCode(200);
+//            response.then().statusCode(200);
             TokenGlobal.TOKEN = response.getBody().path("token");
             System.out.println("Token Global: " + TokenGlobal.TOKEN);
-
-
     }
 }

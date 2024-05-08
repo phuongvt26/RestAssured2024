@@ -21,7 +21,6 @@ public class DemoBooking {
         bookingDate.setCheckin("2023-12-15");
         bookingDate.setCheckout("2023-12-30");
         //Set giá trị cho 2 fields con từ class POJO phụ
-
         bookingBody.setBookingdates(bookingDate);
         RequestSpecification request = given();
         Gson gson = new Gson();

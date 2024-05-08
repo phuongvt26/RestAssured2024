@@ -1,11 +1,16 @@
 package RestAssured.Bai12_ValidateJsonSchem;
 
 import RestAssured.Common.BaseTest;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import org.example.globals.ConfigsGlobal;
+import org.testng.annotations.Test;
+
 import java.io.InputStream;
+
 import static io.restassured.RestAssured.given;
 public class TestJsonSchemaValidate extends BaseTest {
+    @Test
     public void testJsonSchema_getBookById(){
        // ọc cái file json schema mà mình đã lưu vào thư mục "src/test/resources
         InputStream getBookIdSchema = getClass().getClassLoader().getResourceAsStream("GetBookAllSchema.json");
